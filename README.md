@@ -43,15 +43,32 @@ npm install
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
 2. Create a new project (or use an existing one).
 3. Enable Email/Password and Google sign-in methods in the Firebase Auth section.
-4. Copy your Firebase configuration from firebase.js and ensure it is correctly set up.
+4. Copy your Firebase configuration from `firebase.js` and ensure it is correctly set up.
 
-```
-REACT_APP_API_KEY=your-api-key
-REACT_APP_AUTH_DOMAIN=your-auth-domain
-REACT_APP_PROJECT_ID=your-project-id
-REACT_APP_STORAGE_BUCKET=your-storage-bucket
-REACT_APP_MESSAGING_SENDER_ID=your-messaging-sender-id
-REACT_APP_APP_ID=your-app-id
+```javascript
+// firebase.js
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth();
+export const db = getFirestore(app);
+export default app;
 ```
 
 ### Run the App
