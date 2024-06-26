@@ -71,11 +71,11 @@ npm run build
 ```
 /src
   /components
+    firebase.js
     login.js
+    profile.js
     register.js
     signInWIthGoogle.js
-    profile.js
-  firebase.js
   App.js
   index.js
 ```
